@@ -122,9 +122,11 @@
                     <input style='border:none;' type='color' class='form-control form-control-color' id='exampleColorInput' th:value='${nota.getColorTitulo()}' title='elige un color'>
                   </li>
                   <li class='d-flex align-items-center'>
-                    <button type='button' class='btn btn-outline-danger'>
-                      <i class='bi bi-trash-fill'></i>
-                    </button>
+                    <form action="#" th:action="@{'/eliminar/{titulo}/{contenido}/{colorTitulo}/{colorContenido}/{id}' (titulo=${nota.getTitulo()},contenido=${nota.getContenido()}, colorTitulo=${nota.getColorTitulo()}, colorContenido=${nota.getColorContenido()}, id=${nota.getId()} )}" method="get" >
+                      <button type='submit' class='btn btn-outline-danger'>
+                        <i class='bi bi-trash-fill'></i>
+                      </button>
+                    </form>
                   </li>
                 </ul>
               </div>
@@ -140,9 +142,11 @@
                     <input style='border:none;' type='color' class='form-control form-control-color' th:value='${nota.getColorContenido()}' title='elige un color'>
                   </li>
                   <li class='d-flex align-items-center'>
-                    <button type='button' class='btn btn-outline-danger'>
-                      <i class='bi bi-trash-fill'></i>
-                    </button>
+                    <form action="#" th:action="@{'/eliminar/{id}'(id=${nota.getId()})}" th:method="eliminar" >
+                      <button type='button' class='btn btn-outline-danger'>
+                        <i class='bi bi-trash-fill'></i>
+                      </button>
+                    </form>
                   </li>
                 </ul>
               </div>
